@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = prompt('Enter username');
+        var totalmarks = "500";
+        var english = +prompt("english");
+        var urdu = +prompt("urdu");
+        var maths = +prompt("maths"); 
+        var physics = +prompt("physics");
+        var pst = +prompt("pst");
+        var obtmarks = english+urdu+maths+physics+pst;
+        var percentage = obtmarks*100/totalmarks;
+if(percentage >= 80){
+    document.write( name + "<br>" + obtmarks  + "<br>" + percentage + "<br>" + 'A');
+}
+else if(percentage >= 70){
+    document.write( name + "<br>" + obtmarks  + "<br>" +  percentage + "<br>" + 'B');
+}
+else if(percentage >= 60){
+    document.write( name + "<br>" + obtmarks  + "<br>" + percentage + "<br>" + 'C');
+}
+else if(percentage >= 50){
+    document.write( name + "<br>" + obtmarks  + "<br>" + percentage + "<br>" + 'C');
+}
+else if(percentage <= 40){
+    document.write( name + "<br>" + obtmarks  + "<br>" + percentage + "<br>" + 'fail');
+}
+    </script>
+</body>
+</html>

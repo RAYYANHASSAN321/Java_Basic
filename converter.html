@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Converter</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.converter-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="converter-container">
+        <h2>Mass Converter</h2>
+        <label for="massInput">Enter Mass:</label>
+        <input type="number" id="massInput" placeholder="Enter mass..." oninput="convertMass()">
+        
+        <label for="unitSelect">Select Unit:</label>
+        <select id="unitSelect" onchange="convertMass()">
+            <option value="kg">Kilograms (kg)</option>
+            <option value="g">Grams (g)</option>
+            <option value="lb">Pounds (lb)</option>
+        </select>
+
+        <h3>Converted Mass:</h3>
+        <p id="convertedMass">0</p>
+    </div>
+
+    <script>
+    function convertMass() {
+        // Get the input value and unit
+        const massInput = parseFloat(document.getElementById("massInput").value);
+        const unitSelect = document.getElementById("unitSelect");
+        const selectedUnit = unitSelect.options[unitSelect.selectedIndex].value;
+    
+        // Conversion rates
+        const kgToGram = 1000;
+        const lbToKg = 0.453592;
+    
+        // Perform the conversion
+        let convertedMass = 0;
+    
+        switch (selectedUnit) {
+            case "kg":
+                convertedMass = massInput;
+                break;
+            case "g":
+                convertedMass = massInput * kgToGram;
+                break;
+            case "lb":
+                convertedMass = massInput * lbToKg;
+                break;
+        }
+    
+        // Display the converted mass
+        document.getElementById("convertedMass").textContent = convertedMass.toFixed(2);
+    }
+     </script>
+</body>
+</html>
